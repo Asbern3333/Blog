@@ -45,7 +45,7 @@ app.delete("/logout", (req, res) => {
   });
 });
 
-app.get("/post", async (req, res) => {
+app.get("/post", authenticateUser,async (req, res) => {
   try {
     const userinfo = await Post.findAll();
     res.status(201).json(userinfo)
@@ -53,7 +53,7 @@ app.get("/post", async (req, res) => {
     console.error(error)
   }
 })
-app.get("/post/:id", async (req, res) => {
+app.get("/post/:id",authenticateUser, async (req, res) => {
   const PostID = parseInt(req.params.id, 10);
   
   try {
@@ -117,7 +117,7 @@ app.delete("/post/:id", async (req, res) => {
   }
 
 });
-app.get("/comments", async (req, res) => {
+app.get("/comments",authenticateUser, async (req, res) => {
   try {
     const userinfo = await Comments.findAll();
     res.status(201).json(userinfo)
@@ -125,7 +125,7 @@ app.get("/comments", async (req, res) => {
     console.error(error)
   }
 })
-app.get("/comments/:id", async (req, res) => {
+app.get("/comments/:id",authenticateUser, async (req, res) => {
   const PostID = parseInt(req.params.id, 10);
   
   try {
