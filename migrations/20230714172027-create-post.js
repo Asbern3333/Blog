@@ -7,7 +7,7 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER},
-      User_id:{
+      UserId:{
         type: Sequelize.INTEGER,
        references:{ model:"users",
         key:"id",},
@@ -23,7 +23,7 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
+      },updatedAt: Sequelize.DATE,
       
     })
   },

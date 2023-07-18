@@ -16,14 +16,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Comments.init({
     id:{type: DataTypes.INTEGER ,primaryKey:true,autoIncrement:true},
-    User_id:{
+    UserId:{
       type: DataTypes.INTEGER,
      references:{ model:"users",
       key:"id",},
       onUpdate : "CASCADE",
       onDelete: "SET NULL", 
     },
-    post_id:{
+    PostId:{
       type: DataTypes.INTEGER,
       references:{ model:"posts",
        key:"id",},
@@ -31,7 +31,8 @@ module.exports = (sequelize, DataTypes) => {
        onDelete: "SET NULL", 
     },
     content: DataTypes.STRING,
-    created_at: DataTypes.DATE
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Comments',

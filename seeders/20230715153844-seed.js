@@ -1,5 +1,5 @@
 'use strict';
-//const bcrypt = require(bcryptjs)
+const bcrypt = require(bcryptjs)
 const comments = require('../models/comments');
 
 /** @type {import('sequelize-cli').Migration} */
@@ -9,8 +9,9 @@ module.exports = {
     [{
      username : "asber",
      email: "asbeR@.noma",
-    //  password:await bcrypt.hash("password",10),
-     createdAt:new Date
+     createdAt:new Date,
+     updatedAt:new Date,
+     password: await bcrypt.hash("password", 10)
     }
     ],
     {},);
@@ -22,7 +23,7 @@ await queryInterface.bulkInsert(
   {title: "hihi",
   content: "sadw",
   createdAt:new Date,
-  User_id:userId,
+  UserId:userId,
   },
 
   ],
@@ -32,10 +33,11 @@ const postid=posts[0][0].id;
 await queryInterface.bulkInsert(
   "comments",
   [
-    {  User_id:userId,
-       post_id:postid,
+    {  UserId:userId,
+       PostId:postid,
+       title:"asdas",
        content: "String",
-       created_at: new Date,
+       createdAt: new Date,
     }
   ]
 );

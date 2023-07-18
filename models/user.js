@@ -17,10 +17,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init({
     id:{type: DataTypes.INTEGER ,primaryKey:true,autoIncrement:true},
-    password:{type:DataTypes.STRING,allowNull:false,},
+    password:{type:DataTypes.STRING},
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
   },
     {
       sequelize,

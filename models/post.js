@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.Comments);
-
+      this.belongsTo(models.User);
     }
   }
   Post.init({
     id:{type: DataTypes.INTEGER ,primaryKey:true,autoIncrement:true},
-    User_id:{
+    UserId:{
       type: DataTypes.INTEGER,
      references:{ model:"users",
       key:"id",},
@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
 }, {
     sequelize,
     modelName: 'Post',

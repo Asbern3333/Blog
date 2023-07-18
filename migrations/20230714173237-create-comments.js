@@ -10,14 +10,14 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER},
-      User_id:{
+      UserId:{
         type: Sequelize.INTEGER,
        references:{ model:"users",
         key:"id",},
         onUpdate : "CASCADE",
         onDelete: "SET NULL", 
       },
-      post_id:{
+      PostId:{
         type: Sequelize.INTEGER,
         references:{ model:"posts",
          key:"id",},
@@ -27,9 +27,10 @@ module.exports = {
       content: {
         type: Sequelize.STRING
       },
-      created_at: {
+      createdAt: {
         type: Sequelize.DATE
-      }
+      },
+      updatedAt: Sequelize.DATE,
     });
   },
   down: async (queryInterface, Sequelize)=> {
