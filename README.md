@@ -1,5 +1,5 @@
 # Descrepition
-TTP boot camp HM
+TTP boot camp HM/ / \ \
 Create a CRUD web application for a blogging platform, incorporating database relationships using Sequelize, and implementing user authentication and authorization.
 # Tech
 -First I setup the node and express
